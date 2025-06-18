@@ -1,0 +1,13 @@
+/**:
+  ros__parameters:
+    # Type: USL08-H6-2KN-C
+    # Serial No. UL100901
+    # Inspected Date: 2010.09.03
+
+    # Full Scale
+    fs_list: [1000, 1000, 2000]
+
+    # ITF
+    itf_list: [  1.44023,  0.09527,  0.00613,
+                -0.08354,  1.42638,  0.04338,
+                 0.01594,  0.04522, -1.28155  ]

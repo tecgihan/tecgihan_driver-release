@@ -1,0 +1,45 @@
+#!/bin/sh
+
+set -e
+
+# postinst script for tecgihan_driver package
+# Called after the package is installed.
+
+case "$1" in
+    configure)
+        # Reload udev rules and trigger devices
+        echo "Reloading udev rules and triggering devices..."
+        if command -v udevadm >/dev/null 2>&1; then
+            udevadm control --reload-rules
+            udevadm trigger
+            echo "udev rule reload and trigger complete."
+        else
+            echo "udevadm not found. Skipping udev operations."
+        fi
+
+        # Add the current user to the dialout group
+        CURRENT_USER="$(logname 2>/dev/null || echo "$SUDO_USER")"
+
+        if [ -n "$CURRENT_USER" ]; then
+            echo "Adding user '$CURRENT_USER' to the 'dialout' group..."
+            if usermod -aG dialout "$CURRENT_USER"; then
+                echo "User '$CURRENT_USER' has been added to the 'dialout' group."
+
+                echo ""
+                echo "To apply the group change, please do one of the following:"
+                echo "  1. Log out and log back in (recommended)"
+                echo "  2. Or run 'newgrp dialout' in your current terminal session"
+                echo ""
+                echo "※ グループの変更を反映するには、以下のいずれかを行ってください："
+                echo "  1. 一度ログアウトしてから再ログイン（推奨）"
+                echo "  2. または、現在のターミナルで 'newgrp dialout' を実行"
+            else
+                echo "Failed to add '$CURRENT_USER' to the 'dialout' group."
+            fi
+        else
+            echo "Could not determine the current user. Skipping dialout group modification."
+        fi
+        ;;
+esac
+
+exit 0

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot name="USL08-H6" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+  <xacro:arg name="parent_link"     default="base_link"/>
+  <xacro:arg name="sensor_frame_id" default="force_sensor"/>
+
+  <xacro:include filename="$(find tecgihan_driver)/urdf/sensor.urdf.xacro" />
+
+  <link name="$(arg parent_link)"/>
+
+  <xacro:sensor_model parent="$(arg parent_link)" sensor_frame_id="$(arg sensor_frame_id)" />
+
+</robot>

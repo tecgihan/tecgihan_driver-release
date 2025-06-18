@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="debug"       default="false" />
+  <arg name="timer"       default="-0.01" />
+  <arg name="frequency"   default="100" />
+  <arg name="init_zero"   default="false" />
+  <arg name="timeout"     default="1.0" />
+  <arg name="param_file"  default="UL100901.yaml" />
+  <arg name="param_path"  default="$(find-pkg-share tecgihan_driver)/config/$(var param_file)" />
+  <arg name="set_fs"      default="false" />
+  <arg name="set_itf"     default="false" />
+  <arg name="serial_no"   default="" />
+  <arg name="location"    default="" />
+  <arg name="frame_id"    default="force_sensor" />
+  <arg name="node_name"   default="dma03_publisher" />
+
+  <node pkg="tecgihan_driver" exec="dma03_ros_publisher"
+        name="$(var node_name)"
+        output="screen">
+    <param from="$(var param_path)" />
+    <param name="debug"       value="$(var debug)" />
+    <param name="timer"       value="$(var timer)" />
+    <param name="frequency"   value="$(var frequency)" />
+    <param name="init_zero"   value="$(var init_zero)" />
+    <param name="timerout"    value="$(var timeout)" />
+    <param name="param_file"  value="$(var param_file)" />
+    <param name="set_fs"      value="$(var set_fs)" />
+    <param name="set_itf"     value="$(var set_itf)" />
+    <param name="serial_no"   value="$(var serial_no)" />
+    <param name="location"    value="$(var location)" />
+    <param name="frame_id"    value="$(var frame_id)" />
+  </node>
+</launch>

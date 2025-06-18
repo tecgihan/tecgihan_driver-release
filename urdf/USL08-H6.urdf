@@ -1,0 +1,45 @@
+<robot name="USL08-H6">
+
+  <link name="sensor_base">
+    <visual>
+      <geometry>
+        <box size="0.028 0.028 0.0055"/>
+      </geometry>
+      <origin xyz="0 0 0.00275" rpy="0 0 0"/>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.028 0.028 0.0055"/>
+      </geometry>
+      <origin xyz="0 0 0.00275" rpy="0 0 0"/>
+    </collision>
+  </link>
+
+  <link name="force_sensor">
+    <visual>
+      <geometry>
+        <cylinder radius="0.004" length="0.005" />
+      </geometry>
+      <origin xyz="0 0 0.0005" rpy="0 0 0"/>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.004" length="0.005" />
+      </geometry>
+      <origin xyz="0 0 0.0005" rpy="0 0 0"/>
+    </collision>
+  </link>
+
+  <joint name="sensor_joint" type="fixed">
+    <parent link="sensor_base"/>
+    <child  link="force_sensor"/>
+    <origin xyz="0 0 0.003"/>
+  </joint>
+
+</robot>

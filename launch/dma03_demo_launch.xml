@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+
+  <arg name="frame_id" default="force_sensor" />
+  <arg name="model_file" default="USL08-H6.xacro" />
+
+  <include file="$(find-pkg-share tecgihan_driver)/launch/dma03_ros_launch.xml">
+    <arg name="init_zero" value="true" />
+    <arg name="frame_id" value="$(var frame_id)" />
+  </include>
+
+  <node pkg="tecgihan_driver"
+        exec="force_to_wrench"
+        name="force_to_wrench" />
+
+  <node pkg="robot_state_publisher"
+        exec="robot_state_publisher"
+        name="robot_state_publisher">
+    <param name="robot_description"
+           value="$(command 'xacro $(find-pkg-share tecgihan_driver)/urdf/$(var model_file) sensor_frame_id:=$(var frame_id)')" />
+  </node>
+
+  <node pkg="rviz2" exec="rviz2"
+        args="-d $(find-pkg-share tecgihan_driver)/launch/dma03_demo.rviz" />
+
+</launch>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<robot name="sensor_model_macro" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+  <xacro:macro name="sensor_model"
+                params="parent
+                        sensor_frame_id
+                        base_width_x    := 0.028
+                        base_width_y    := 0.028
+                        base_height     := 0.0055
+                        cylinder_radius := 0.004
+                        cylinder_height := 0.005
+                        overall_height  := 0.006
+                        ">
+
+    <material name="${sensor_frame_id}_blue_gray">
+      <color rgba="0.7 0.7 1.0 1.0"/>
+    </material>
+
+    <link name="${sensor_frame_id}_base">
+      <visual>
+        <geometry>
+          <box size="${base_width_x} ${base_width_y} ${base_height}"/>
+        </geometry>
+        <origin xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+        <material name="${sensor_frame_id}_blue_gray" />
+      </visual>
+      <collision>
+        <geometry>
+          <box size="${base_width_x} ${base_width_y} ${base_height}"/>
+        </geometry>
+        <origin xyz="0 0 ${base_height/2.0}" rpy="0 0 0"/>
+      </collision>
+    </link>
+
+    <link name="${sensor_frame_id}">
+      <visual>
+        <geometry>
+          <cylinder radius="${cylinder_radius}" length="${cylinder_height}" />
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <material name="${sensor_frame_id}_blue_gray" />
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="${cylinder_radius}" length="${cylinder_height}" />
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </collision>
+    </link>
+
+    <joint name="${sensor_frame_id}_base_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child  link="${sensor_frame_id}_base"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+    <joint name="${sensor_frame_id}_joint" type="fixed">
+      <parent link="${sensor_frame_id}_base"/>
+      <child  link="${sensor_frame_id}"/>
+      <origin xyz="0 0 ${overall_height-(cylinder_height/2.0)}" rpy="0 0 0" />
+    </joint>
+
+  </xacro:macro> 
+
+</robot>

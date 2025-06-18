@@ -1,0 +1,2 @@
+# Tec Gihan Amplifier Permission Settings
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="6014", MODE="0666"

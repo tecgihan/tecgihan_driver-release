@@ -1,0 +1,56 @@
+name: ROS 2 Multi-Distro CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ros_distro: [humble, jazzy]
+        include:
+          - ros_distro: humble
+          - ros_distro: jazzy
+
+    container:
+      image: ros:${{ matrix.ros_distro }}
+      options: --privileged
+
+    steps:
+      - name: Setup Directories
+        run: |
+          mkdir -p ros_ws/src
+          cd ros_ws
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          path: src
+
+      - name: Install dependencies
+        run: |
+          apt update && apt install -y \
+            curl git python3-pip python3-colcon-common-extensions \
+            python3-rosdep
+          rosdep init || echo "rosdep already initialized"
+          rosdep update
+
+      - name: rosdep install
+        run: |
+          rosdep install --from-paths src --ignore-src -r -y
+
+      - name: Build
+        shell: bash
+        run: |
+          source /opt/ros/${{ matrix.ros_distro }}/setup.bash
+          colcon build --event-handlers console_direct+
+
+      - name: Run tests
+        shell: bash
+        run: |
+          source install/setup.bash
+          colcon test --event-handlers console_direct+
+          colcon test-result --verbose

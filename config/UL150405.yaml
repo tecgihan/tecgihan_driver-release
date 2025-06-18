@@ -1,0 +1,13 @@
+/**:
+  ros__parameters:
+    # Type: USL06-H5-500N-C
+    # Serial No. UL150405
+    # Inspected Date: 2015.04.02
+
+    # Full Scale
+    fs_list: [1000, 1000, 1000]
+
+    # ITF
+    itf_list: [  0.22610, -0.00567,  0.00269,
+                -0.00024,  0.22547, -0.00035,
+                 0.00054,  0.00037, -0.25853  ]
