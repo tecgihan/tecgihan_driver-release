@@ -1,0 +1,19 @@
+ros-humble-tecgihan-driver (0.1.2-1jammy) jammy; urgency=high
+
+  Added
+  - Added support for DMA-03B.
+  Fixed
+  - Fixed a bug in full-scale (FS) configuration.
+  Contributors: Ryota Amakawa
+
+ -- Shigeru Wakida <s.wakida@tecgihan.co.jp>  Thu, 18 Sep 2025 15:00:00 -0000
+
+ros-humble-tecgihan-driver (0.1.1-1jammy) jammy; urgency=high
+
+  * add .github/workflows/ci.yaml, fix code formats and mod test settings
+  * mod README.mdInitial Commit
+  * Contributors: Yosuke Yamamoto
+
+ -- Shigeru Wakida <s.wakida@tecgihan.co.jp>  Tue, 17 Jun 2025 15:00:00 -0000
+
+
