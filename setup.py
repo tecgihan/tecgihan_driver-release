@@ -8,7 +8,7 @@ package_name = 'tecgihan_driver'
 
 setup(
     name=package_name,
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -31,7 +31,9 @@ setup(
     maintainer_email='s.wakida@tecgihan.co.jp',
     description='Linux and ROS driver software for Tec Gihan sensor amplifiers for robots',
     license='BSD',
-    tests_require=['pytest'],
+    extras_require={
+        'test': ['pytest'],
+    },
     entry_points={
         'console_scripts': [
             'dma03_ros_publisher = tecgihan_driver.dma03_ros_publisher:main',
