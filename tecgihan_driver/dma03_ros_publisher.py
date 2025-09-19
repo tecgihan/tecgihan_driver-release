@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from builtin_interfaces.msg import Time
 from geometry_msgs.msg import Vector3Stamped
 from rcl_interfaces.msg import SetParametersResult
