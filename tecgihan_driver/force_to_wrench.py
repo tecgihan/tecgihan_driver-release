@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from geometry_msgs.msg import Vector3Stamped, WrenchStamped
 
 import rclpy
