@@ -1,0 +1,39 @@
+ros-humble-tecgihan-driver (0.3.0-1jammy) jammy; urgency=high
+
+  Added
+  - Added support for DPA-06B (3axis x2 / 6axis sensor_mode).
+  Fixed
+  - Fix minor bugs in existing drivers
+  Contributors: Ryota Amakawa
+
+ -- "Shigeru Wakida" <s.wakida@tecgihan.co.jp>  Tue, 21 Jul 2026 15:00:00 -0000
+
+ros-humble-tecgihan-driver (0.2.0-1jammy) jammy; urgency=high
+
+  Added
+  - Added support for IMS-SD.
+  Fixed
+  - Fixed a bug causing errors on redundant rclpy.shutdown() calls in DMA03Publisher.main()
+  Contributors: Ryota Amakawa
+
+ -- "Shigeru Wakida" <s.wakida@tecgihan.co.jp>  Mon, 29 Jun 2026 15:00:00 -0000
+
+ros-humble-tecgihan-driver (0.1.2-1jammy) jammy; urgency=high
+
+  Added
+  - Added support for DMA-03B.
+  Fixed
+  - Fixed a bug in full-scale (FS) configuration.
+  Contributors: Ryota Amakawa
+
+ -- "Shigeru Wakida" <s.wakida@tecgihan.co.jp>  Thu, 18 Sep 2025 15:00:00 -0000
+
+ros-humble-tecgihan-driver (0.1.1-1jammy) jammy; urgency=high
+
+  * add .github/workflows/ci.yaml, fix code formats and mod test settings
+  * mod README.mdInitial Commit
+  * Contributors: Yosuke Yamamoto
+
+ -- "Shigeru Wakida" <s.wakida@tecgihan.co.jp>  Tue, 17 Jun 2025 15:00:00 -0000
+
+
