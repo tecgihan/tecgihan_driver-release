@@ -1,3 +1,26 @@
+## tecgihan_driver (humble) - 0.3.0-1
+
+The packages in the `tecgihan_driver` repository were released into the `humble` distro by running `/usr/bin/bloom-release --rosdistro humble --track humble tecgihan_driver` on `Fri, 24 Jul 2026 06:55:44 -0000`
+
+The `tecgihan_driver` package was released.
+
+Version of package(s) in repository `tecgihan_driver`:
+
+- upstream repository: https://github.com/tecgihan/tecgihan_driver.git
+- release repository: https://github.com/tecgihan/tecgihan_driver-release.git
+- rosdistro version: `0.2.0-1`
+- old version: `0.2.0-1`
+- new version: `0.3.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.14.3`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## tecgihan_driver (jazzy) - 0.2.0-1
 
 The packages in the `tecgihan_driver` repository were released into the `jazzy` distro by running `/usr/bin/bloom-release --rosdistro jazzy --track jazzy tecgihan_driver` on `Wed, 08 Jul 2026 02:49:45 -0000`
